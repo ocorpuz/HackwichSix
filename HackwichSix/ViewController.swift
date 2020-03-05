@@ -11,15 +11,22 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var myFriends = ["Ja","Mo","Ra"]
     var Travel = ["Italy", "Spain", "Greenland"]
+    var City = ["Rome" , "Barcelona" , "Nuuk"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Travel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
+        
         let text = Travel[indexPath.row]
+        
         cell.textLabel?.text=text
+        
+        cell.detailTextLabel?.text = City[indexPath.row]
+        
         return cell
     }
     
